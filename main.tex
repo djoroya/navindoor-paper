@@ -1,0 +1,35 @@
+\documentclass[conference]{IEEEtran}
+% *** CITATION PACKAGES ***
+\usepackage{cite}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\bibliographystyle{vancouver}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+
+\begin{document}
+ 
+\input{contents/01-head.tex}
+\maketitle
+
+\input{contents/02-abstract.tex}
+\IEEEpeerreviewmaketitle
+
+\input{contents/03-introduction.tex}
+\input{contents/04-RelatedWork.tex}
+\input{contents/05-Design.tex}
+\input{contents/06-Example.tex}
+
+
+\input{contents/conclusion.tex}
+
+
+\addcontentsline{toc}{chapter}{\textbf{References}}
+\bibliography{references.bib}
+
+% that's all folks
+\end{document}
+
+

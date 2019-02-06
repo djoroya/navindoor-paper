@@ -1,0 +1,34 @@
+\section{Introdución}
+
+% 1- Problema actual: experimentación en posicionamiento es costoso
+
+Las metodologías utilizadas para los sistemas de localización son tan variadas como la diversidad de sensores existentes. Sin embargo, aunque los algoritmos sean diversos, existe una serie de pasos comunes que se deben realizar antes que desarrollar un algoritmo de posicionamiento. Estas son, la toma de medidas experimentales de señales, así como medidas de la propia trayectoria. Esta recolección de datos debe ser variada, ya que una colección en pocas casuísticas puede agregar sesgos no deseados a nuestros algoritmos. Es por ello que lo ideal es realizar pruebas en varios entornos con distintas trayectorias. Sin embargo, esto hace que el tiempo y el coste del desarrollo aumente. 
+
+% 2- Simuladores son útiles para esta tarea
+% 3- No existen demasiados actualmente y tienen algunas limitaciones: centrados en RF, no cubren todos los elementos que intervienen en un experimento
+
+Es por ello que la simulación de señales es una tarea muy interesante. Buenos modelos de simulación pueden evitarnos pruebas experimentales antes de tener confianza completa en nuestro algortimo. Sin embargo, por ahora no existe un estandar de software donde poder desarrollar algortimos de distintas características. Los pocos simuladores que existen con este fin, suelen desarrollar en detalle alguna tecnología en concreto. Esto hace que la fusión de algoritmos o de modelos de simulación, requiera un prepoceso y el conocimiento de varios frameworks.
+
+% 4 - - Objetivo del paper: presentar Navindoor. Introducir las principales características y diferencias con el estado del arte: framework/API Matlab, modular, incluye GUI
+
+En este artículo se propone el software de simulación, Navindoor\footnote{\url{https://github.com/DeustoTech/navindoor-code}}. Este es un software para MATLAB, en dodne el usuario puede crear diseñar el escenario del movimiento, simular una trayectoria, geenerar señales sintéticas, además de procesar las señales generadas para crear una estimación, con ayuda de algoritmos implementados en el framework. Navindoor contiene una interfaz gráfica (GUI), que nos ayuda a generar lo antes mencionado. Sin embargo, Navindoor no solo es GUI, si no también una interfaz de lineas de comando (CLI). Esto le da la facilidad de automatizar algunas tareas. Pudiera parecer que Navindoor tambien es una estructura rígida, en donde los modelos de simulación estan anclados al framework, sin embargo, este se ha desarrollado de forma que la implementación de nuevos modelos es inmediata. Utilizando los objetos \emph{function\_handle} de MATLAB, podemos dar funciones como parámetros de entrada a los objetos de Navindoor. De esta manera desarrollar un modelo de simulación se simplifica a crear una funcion de MATLAB, con los parámetros de entrada/salida correctos.
+
+% 5 - Estructura del resto del paper
+
+El resto del documento se estrutura de la siguiente manera: En la sección \ref{S2}, se hará un pequeña revisión sobre los algunos simuladores, con el mismo propósito. Luego en la  sección \ref{S3}, discutiremos sobre las principales características y el diseño de Navindoor. En la sección \ref{S4} mostraremos un pequeño ejemplo de uso, y por último en la sección \ref{S5} mostraremos un pequeño resumen de los mostrado y de las siguientes desarrollos.
+
+
+% ----------------------------------------------------------------------------------------------------------------------------------
+% Navindoor propone una solución a este problema mediante la simulación del proceso de posicionamiento. El escenario, la trayectorias y las señales son simulados mediante modelos correspondientes. Además de permitir al usuario crear nuevos modelos si así lo quisiese. De esta forma Navindoor se convierte en un simulador muy versátil. 
+
+% Navindoor esta diseñar para poder desarrollar tres tipos de algoritmos.
+% \begin{enumerate}
+%     \item \textbf{Algoritmos de simulación de trayectorias}: Los modelos de movimiento de un objetivo deberá reproducir las velocidades y aceleraciones. Este modelo puede cambiar si el objetivo es un robot o una peatón, es más el modelo de movimiento puede cambiar según el camino que tome el objetivo.
+%     \item \textbf{Algoritmos de simulación de señales}: En Navindoor se contemplan dos tipos de señales, estas son las que dependen de  balizas para ser generadas y las que son solo dependientes de la trayectoria seguida (Seccion 1). Navindoor contiene modelos señales  \emph{RSS, ToF, AoA, Barometer,Magnetomer,etc.} que pueden ser modificados o creado otros a partir de ellos.
+%     \item \textbf{Algoritmos de posicionamiento}: Algoritmos de posicionamiento ya concidos como los filtros de Kalman ya estan implementados en Navindoor por defecto. Y de la misma forma que en los dos puntos anteriores, la implementación de nuevos algoritmos es muy fácil.
+% \end{enumerate}
+
+% Gracias a que la herramienta contiene modelos por defecto en cada uno de sus frentes, podemos desarrollar de forma independiente a los demás modelos. 
+
+% En este articulo, describiremos el estado del arte en materia de simuladores, además de la arquitectura de software debajo de navindoor, la funcionalidad del software en algunos ejemplos concretos y por último la dirección de los futuros desarrollos.  
+

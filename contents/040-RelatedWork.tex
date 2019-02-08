@@ -1,27 +1,28 @@
 \section{Estado del arte}\label{S2}
-En la comunidad del posicionamiento se esta buscando una solución para estandarizar los desarrollos. Es por ello que se han realizado trabajos relacionados. En este apartado mencionaremos algunos trabajos y sus principales características.
-
+Los simuladores son una gran solución para mejorar el desarrollo de la sistemas de localización, es por ello que dentro la comunidad científica existen distintos intentos. A continuación mencionaremos algunos trabajos relacionados con el tema, ademas de sus principales características.
 
 % ----------------------------------------------------
 
 
 \subsection{SMILe}
 
-SMILe \cite{Jankowski2018} es un software que propone una solución de simulación completa y unificada que ayude al desarrollo y evaluación de los métodos de localización basados en  ToF. El objetivo es proporcionar una herramienta de simulación bien definida y altamente configurable, donde se puedan evaluar varios métodos de localización. SMILe permite al usuario configurar un ambiente interior artificial, donde se pueden configurar varios factores que afectan significativamente el rendimiento general de la localización. Estos factores incluyen: despliegue de diferentes nodos, capacidades de radio, inexactitud de relojes de hardware.  SMILe, nos provee herramientas necesarias para la comparación de algoritmos de estimación de la posición a partir de señales ToF, sin embargo por ahora otras tecnologías no están implementadas.
+SMILe \cite{Jankowski2018} es un software que propone una solución de simulación completa y unificada que ayude al desarrollo y evaluación de los métodos de localización basados en  ToF. El objetivo es proporcionar una herramienta de simulación bien definida y altamente configurable, donde se puedan evaluar varios métodos de localización. 
+% pro
+SMILe permite al usuario configurar un espacio, donde se pueden configurar varios factores que afectan significativamente el rendimiento general de la localización. Estos factores incluyen: despliegue de diferentes nodos, capacidades de radio, inexactitud de relojes de hardware.
+% contra 
+Aunque SMILe, nos provee herramientas necesarias para la comparación de algoritmos de estimación de la posición a partir de señales ToF, señales de otra índole todavía no esta implementadas. Por lo que lo hace muy potente en su especialidad y débil en otras tecnologías.
 % ----------------------------------------------------
 
 \subsection{PyLayers}
 
-PyLayers\cite{Amiot2013} es un simulador de radio frecuencia. El canal de radio se sintetiza mediante el uso de un método de trazado de rayos basado en gráficos, de esta forma es capaz de simular el efecto de la reflexión de las ondas.  PyLayers, esta desarrollado en python, y esta pensado para ser independientes de los algoritmos de procesamiento. 
-
-
+PyLayers\cite{Amiot2013} es un simulador de radio frecuencia.
+% pro
+El canal de radio se sintetiza mediante el uso de un método de trazado de rayos basado en gráficos, de esta forma es capaz de simular el efecto de la reflexión de las ondas.  PyLayers, esta desarrollado en python, y esta pensado para ser independientes de los algoritmos de procesamiento. 
+% contra
+Al igual que el simlulador anterior, aunque existe un esfuerzo por crear herramientas para todo el proceso de la localización, PyLayers se centra en las señales de radio frecuencia dejando de lado tecnologías inerciales.
 % ----------------------------------------------------
 
 
 \subsection{Sensor Fusion and Tracking Toolbox}
 
-\emph{Sensor Fusion and Tracking Toolbox} \cite{Mathworks} es un toolbox desarrollado por Mathworks, que incluye algoritmos y herramientas para el diseño, simulación y análisis de sistemas que fusionan datos de múltiples sensores para mantener la posición, la orientación y el conocimiento de la situación. Los ejemplos de referencia proporcionan un punto de partida para implementar componentes de sistemas navegación.
-
-Con este toolbox se puede importar y definir escenarios y trayectorias, transmitir señales y generar datos sintéticos para sensores activos y pasivos, incluidos sensores de RF, acústicos, EO / IR y GPS / IMU. También puede evaluar la precisión y el rendimiento del sistema con puntos de referencia estándar, métricas y gráficos animados. 
-
-Esta toolbox es bastante reciente, por lo que por ahora contiene pocos ejemplos, sin embargo contiene un gran potencial. 
+\emph{Sensor Fusion and Tracking Toolbox} \cite{Mathworks} es un toolbox desarrollado por Mathworks, que incluye algoritmos y herramientas para el diseño, simulación y análisis de sistemas que fusionan datos de múltiples sensores para sistemas de localización. Con este toolbox se puede importar y definir escenarios y trayectorias, transmitir señales y generar datos sintéticos para sensores, incluidos sensores de RF, acústicos, EO / IR y GPS / IMU. También puede evaluar la precisión y el rendimiento del sistema con puntos de referencia estándar, métricas y gráficos animados. Esta toolbox es bastante reciente, por lo que por ahora contiene pocos ejemplos, sin embargo contiene un gran potencial.  

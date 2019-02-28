@@ -1,11 +1,33 @@
-\section{Diseño de Software}\label{S3}
-
+\section{Descripción de la plataforma Navindoor}\label{S3}
 % - Características generales
+Navindoor ha sido desarrollado bajo el paradigma de la programación orientada a objetos. Se han definido clases para representar elementos en el diseño de sistemas de localización. La planimetría, las trayectorias o las señales son clases que contiene métodos asociados para su visualización, la extracción de datos e interacción entre ellos. Por otro lado, tenemos los algoritmos de localización y las métricas para comparar algoritmos. Estas están representadas por funciones que actúan sobre las clases antes mencionadas.
 % - Funcionales
 %     - Proceso de experimentación en sistemas de localización -> arquitectura modular
 %     - Incluye modelos y algoritmos por defecto pero preparado para incluir nuevos
 %     - Guardar/Cargar datos
+
+Estas clases y funciones se han desarrollado en cinco módulos que siguen el proceso de experimentación en el diseño de sistemas de localización. Para tener una visión global de ello, se describirá brevemente este proceso y el módulo propuesto en cada punto:
+
+\begin{enumerate}
+    \item Obtención de la planimetría. El primer paso en la experimentación es la elección del escenario y la obtención de la planimetría de este. En Navindoor, se ha creado el módulo de planimetría con la clases necesarias para construir una planimetría de varios niveles. 
+    %
+    \item Generación de trayectorias. En la experimentación, se toman puntos de referencia para poder construir trayectorias a través de ellas. Esto limita la variedad de las trayectorias, sin embargo es necesario para obtener medidas precisas de la posición en cada instante. 
+    %
+    En Navindoor se ha creado el módulo de generación de trayectorias, dedicado a la simulación de trayectorias. Debido a que estamos en un entorno de simulación tenemos información exacta sobre la trayectoria real, generada a partir de una sucesión de puntos proporcionada por el usuario.
+    %
+    %
+    \item Toma de medidas de señales. En la experimentación, una vez generada la trayectoria, se debe enriquecer esta con señales. El tercer módulo, llamado modulo de generación de señales, ésta dedicado a la simulación de señales sintéticas. Gracias a la simulación, podemos crear las señales después de haber sido generada la trayectoria. 
+    %
+    %
+    \item Procesamiento de señales. Tras la toma de medidas, los algoritmos de localización se encargan de procesar las señales. El cuarto módulo de Navindoor, llamado módulo de procesamiento de medidas, provee algoritmos capaces de crear estimaciones de la trayectoria real a partir de las señales simuladas. Además de ofrecer un esquema donde nuevos algoritmos puedan ser desarrollados.
+    %
+    %
+    \item Comparación de Algoritmos. Por último, para poder validar los algoritmos desarrollados es necesario la comparación con otros algoritmos ya consolidados. El quinto módulo de Navindoor es el módulo de validación de algoritmos, que nos provee de métodos de comparación de algoritmos proporcionados por el usuario o entre algoritmos por defecto.
+\end{enumerate}
 % - Técnicas
 %     - Framework/API y GUI
 %     - Requisitos: Matlab R2017b?
 % - URL donde está disponible Navindoor
+Dentro de estos módulos se encuentran repartidas las clases y funciones definidas en Navindoor. Cabe mencionar que tanto el CLI, como el GUI son compatibles en versiones de MATLAB superiores a MATLAB R2017b y se encuentran disponibles en \cite{navindoor}.
+
+A continuación se expondrán los detalles de cada uno de los módulos.

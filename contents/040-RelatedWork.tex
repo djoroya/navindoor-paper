@@ -1,28 +1,22 @@
 \section{Estado del arte}\label{S2}
-Los simuladores son una gran solución para mejorar el desarrollo de la sistemas de localización, es por ello que dentro la comunidad científica existen distintos intentos. A continuación mencionaremos algunos trabajos relacionados con el tema, ademas de sus principales características.
+Los simuladores son una gran herramienta para mejorar el diseño, prueba y validación de sistemas de localización. Es por ello que podemos encontrar distintos intentos en la comunidad científica. A continuación se resumirá algunos trabajos existentes en el ámbito, además de describir sus principales características.
 
 % ----------------------------------------------------
+SMILe  \cite{Jankowski2018} es una herramienta de simulación de código abierto, para desarrollar y evaluar métodos de localización en interiores basados en el tiempo de propagación como métricas de localización, tales como el Tiempo de Vuelo (ToF) o la Diferencia de Tiempo de Llegada (TDoA). Esta herramienta está basada en el simulador OMNET+++ y un paquete de funcionalidades escritas en Python para el análisis y el procesamiento de datos. SMILe permite al usuario configurar un espacio, donde se pueden cambiar varios factores que afectan significativamente el rendimiento de la localización. Estos factores incluyen el despliegue de diferentes nodos, capacidades de radio y la inexactitud de relojes.
+% Comparación Navindoor  
 
+Tanto en Navindoor como en SMILe existen herramientas necesarias para el diseño, prueba y evaluación de algoritmos de localización a partir de ToF. Sin embargo, mientras que en SMILe señales de otra índole todavía no están contempladas, en Navindoor se abarcar más diversidad de tecnologías. Aun así, el modelo de simulación de señales de ToF de SMILe es más complejo que el modelo de simulación de Navindoor. 
+% ----------------------------------------------------
 
-\subsection{SMILe}
+PyLayers\cite{Amiot2013} es un simulador de radio frecuencia de código abierto. Se ha diseñado para evaluar el rendimiento de algoritmos de localización. El canal de radio se sintetiza mediante el uso de un  método de trazado de rayos basado en gráficos. El movimiento de personas se modela con un enfoque de fuerzas virtuales. Los datos simulados se pueden procesar directamente con uno de los algoritmos de localización incorporados o se pueden exportar a varias extensiones para el procesamiento externo. 
+% Comparación Navindoor  
 
-SMILe \cite{Jankowski2018} es un software que propone una solución de simulación completa y unificada que ayude al desarrollo y evaluación de los métodos de localización basados en  ToF. El objetivo es proporcionar una herramienta de simulación bien definida y altamente configurable, donde se puedan evaluar varios métodos de localización. 
+Al igual que en el caso anterior, PyLayers contiene un simulador complejo para una tecnología concreta. Aunque ofrece la posibilidad de procesar la señales dentro del propio simulador, hace énfasis en la exportación de sus resultados para el procesamiento externo. En Navindoor, se opta por ofrecer un interfaz para la incorporación de nuevos modelos de simulación, manteniendo todo el proceso en un mismo entorno de desarrollo.
+% ----------------------------------------------------
+
 % pro
-SMILe permite al usuario configurar un espacio, donde se pueden configurar varios factores que afectan significativamente el rendimiento general de la localización. Estos factores incluyen: despliegue de diferentes nodos, capacidades de radio, inexactitud de relojes de hardware.
-% contra 
-Aunque SMILe, nos provee herramientas necesarias para la comparación de algoritmos de estimación de la posición a partir de señales ToF, señales de otra índole todavía no esta implementadas. Por lo que lo hace muy potente en su especialidad y débil en otras tecnologías.
-% ----------------------------------------------------
+\emph{Sensor Fusion and Tracking Toolbox} \cite{Mathworks} es una librería desarrollada por Mathworks que incluye algoritmos y herramientas para diseñar, simular y analizar sistemas que fusionan datos de varios sensores con el objetivo de hacer seguimiento de la posición y orientación de objetos.
+Esta librería incluye funcionalidades para la generación de trayectorias y escenarios, simular mediciones de sensores inerciales (acelerómetro, giroscopio, magnetómetro), receptores de GPS, radar, sonar e infrarrojo, diferentes algoritmos de fusión y estimación (filtros de Kalman y filtros de partículas), y herramientas para visualizar, analizar y comparar el rendimiento de los diferentes algoritmos.
 
-\subsection{PyLayers}
-
-PyLayers\cite{Amiot2013} es un simulador de radio frecuencia.
-% pro
-El canal de radio se sintetiza mediante el uso de un método de trazado de rayos basado en gráficos, de esta forma es capaz de simular el efecto de la reflexión de las ondas.  PyLayers, esta desarrollado en python, y esta pensado para ser independientes de los algoritmos de procesamiento. 
-% contra
-Al igual que el simlulador anterior, aunque existe un esfuerzo por crear herramientas para todo el proceso de la localización, PyLayers se centra en las señales de radio frecuencia dejando de lado tecnologías inerciales.
-% ----------------------------------------------------
-
-
-\subsection{Sensor Fusion and Tracking Toolbox}
-
-\emph{Sensor Fusion and Tracking Toolbox} \cite{Mathworks} es un toolbox desarrollado por Mathworks, que incluye algoritmos y herramientas para el diseño, simulación y análisis de sistemas que fusionan datos de múltiples sensores para sistemas de localización. Con este toolbox se puede importar y definir escenarios y trayectorias, transmitir señales y generar datos sintéticos para sensores, incluidos sensores de RF, acústicos, EO / IR y GPS / IMU. También puede evaluar la precisión y el rendimiento del sistema con puntos de referencia estándar, métricas y gráficos animados. Esta toolbox es bastante reciente, por lo que por ahora contiene pocos ejemplos, sin embargo contiene un gran potencial.  
+% Comparación Navindoor  
+En está librería, al igual que en Navindoor, se provee de herramientas en todo el proceso de diseño de sistemas de localización. Sin embargo, en \emph{Sensor Fusion and Tracking Toolbox} por ahora solo se ha desarrollado una  CLI, careciendo de GUI. Por otra parte, los modelos de simulación en la generación de trayectorias son generales, no simulan un activo en concreto. En Navindoor los modelos de simulación están enfocados al movimiento de personas.

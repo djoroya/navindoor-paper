@@ -1,7 +1,19 @@
-\section{Conclusión}\label{S5}
+\section{Conclusiones}\label{S5}
 
-Se ha mostrado como los aspectos básicos de navindoor. Este software ha sido escrito para ser escalable, donde los propios usuarios puedan contribuir con nuevos modelos de simulación y de procesamiento. Aunque en este momento los modelos implentados son simples, su estructura modular es capaz de integrar modelos complejos. Además gracias a las APis de MATLAB para otros lenguajes de programación, es posible la integración de otros simuladores en distintos lenguajes, con una simple adaptación. Simluadores como los presentados en la sección \ref{S2}.
+Se han mostrado las principales características de Navindoor.  Esta plataforma ha sido desarrollada para ser escalable, donde los propios usuarios puedan contribuir con modelos de simulación de trayectorias, modelos de señales y con algoritmos de localización. Aunque en este momento los modelos implementados son básicos, su estructura modular es capaz de integrar modelos complejos.
+%  
 
-Es importante notar que la clase \emph{building} es una abstracción de la planimetría de un edificio, por lo que la traslación a otros formatos como \emph{XML} o \emph{JSON} es posible, y se están explorando por parte del equipo de desarrollo. Este desarrollo permitirá comunicaciones con plataformas como \emph{Open Street Maps}.
+A continuación mencionaremos los futuros desarrollos en la plataforma Navindoor.
 
-Navindoor es un software desarrollado en MATLAB, que mejora el desarrollo de algoritmos de posicionamiento. Esta constantemente en desarrollo y continuará agregando funcionalidades.
+Con respecto al módulo de la planimetría, es importante notar que la clase \emph{building} es una abstracción de un edificio, por lo que la traslación a otros formatos como \emph{XML} o \emph{JSON} es inmediata. Este desarrollo permitirá comunicaciones con plataformas como \emph{Open Street Maps}, permitiendo el uso de señales \emph{GNSS}, además de la fusión de tecnologías de localización en interiores con tecnologías de localización globales.
+%
+
+En cuanto a la simulación de trayectorias, se han implementado modelos de simulación de personas. Sin embargo esto puede generalizarse a otros tipos de activos como pueden ser los drones, robots, etc. Gracias a la fácil implementación de modelos, Navindoor es una plataforma muy versátil.
+
+Por parte de la simulación de señales, gracias a las APIs de MATLAB para otros lenguajes de programación, es posible la integración de otros simuladores en distintos lenguajes. Simuladores como los presentados en la sección \ref{S2}, pueden ser integrados.
+
+% 
+Por último, se agregarán nuevas métricas para la comparación de trayectorias, siguiendo la misma filosofía modular tomada en los modelos de simulación y los algoritmos. De esta forma, podremos crear métricas de localización personalizadas e independientes a la plataforma.
+
+% 
+% Navindoor es una plataforma que mejora el proceso de diseño de sistemas de localización y esta constantemente en desarrollo. Este continuará agregando funcionalidades, que estarán disponibles en \cite{navindoor}.
